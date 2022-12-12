@@ -5,17 +5,10 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
-<title>Insert title here</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
  <style>
      
-      .b-example-divider {
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-      }
+
  .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -61,33 +54,7 @@
 
 </head>
 <body>
-<div style="height:300px; background-color: white;" class="b-example-divider" align="center" >
-
- <span style="cursor:pointer" onclick="alert('이동')"><img src="resources/img/movieBox2.jpg" >
- <Span  style="font-size: 150px; color:red; font-weight: bold ; font-style: italic;" >Movie Box</Span>
- 
- </span></div>
-
-  <nav class="py-2 bg-light border-bottom">
-    <div class="container d-flex flex-wrap">
-      <ul class="nav me-auto">
-      <li class="nav-item">&emsp;&emsp;&emsp;</li>
-        <li class="nav-item"><a href="#" class="nav-link link-dark px-2 active" aria-current="page" style="font-weight: bold ;" >영화</a></li>
-         <li class="nav-item">&emsp;&emsp;&emsp;</li>
-        <li class="nav-item"><a href="#" class="nav-link link-dark px-2" style="font-weight: bold ;">예매</a></li>
-         <li class="nav-item">&emsp;&emsp;&emsp;</li> 
-        <li class="nav-item"><a href="#" class="nav-link link-dark px-2" style="font-weight: bold ;">스토어</a></li>
-         <li class="nav-item">&emsp;&emsp;&emsp;</li>
-        <li class="nav-item"><a href="#" class="nav-link link-dark px-2" style="font-weight: bold ;">이벤트/공지사항</a></li>
-        
-        <li class="nav-item"><a href="#" class="nav-link link-dark px-2" style="font-weight: bold ;"></a></li>
-      </ul>
-      <ul class="nav">
-        <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Login</a></li>
-        <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Sign up</a></li>
-      </ul>
-    </div>
-  </nav>
+<%@include file="/WEB-INF/views/commonHeader.jsp" %>
   
   
    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" >
@@ -269,16 +236,13 @@
 
 
   <!-- FOOTER -->
-  <footer class="container">
-    <p class="float-end"><a href="#">عد إلى الأعلى</a></p>
-    <p>&copy; 2017–2022 Company, Inc. &middot; <a href="#">سياسة الخصوصية</a> &middot; <a href="#">شروط الاستخدام</a></p>
-  </footer>
+
 </main>
 
 
 
 
+	<%@include file="/WEB-INF/views/commonFooter.jsp" %>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>
