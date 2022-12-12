@@ -1,0 +1,59 @@
+package com.naver.erp;
+
+import java.util.List;
+import java.util.Map;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class MyPageDAOImpl implements MyPageDAO{
+	
+	@Autowired
+	private SqlSessionTemplate sqlSession;
+	
+	// 현재 로그인된 회원의 email, 이름, 주소, 번호 가져오는것
+	public List<Map<String, String>> getMemberInfo(String sessionEmail){
+		List<Map<String,String>> memberInfo = this.sqlSession.selectList(
+				"com.naver.erp.MyPageDAO.getMemberInfo"
+			   
+		
+		);
+
+		return memberInfo;
+		
+		}
+	// 예약 조회 글들 가져오기 먼저 예약완료된것들
+	// 0 은 return 1은 onbook 2는 rental
+	
+	/*
+	public List<Map> getBookList0(int memNo ){
+		List<Map> memberInfo = this. sqlSession.selectList(
+				"com.naver.erp.MyPageDAO.getBookList0",
+				memNo
+				);
+		
+		return memberInfo;
+	}
+	public List<Map> getBookList1(int memNo ){
+		List<Map> memberInfo = this. sqlSession.selectList(
+				"com.naver.erp.MyPageDAO.getBookList1",
+				memNo
+				);
+		
+		return memberInfo;
+	}
+	public List<Map> getBookList2(int memNo ){
+		List<Map> memberInfo = this. sqlSession.selectList(
+				"com.naver.erp.MyPageDAO.getBookList2",
+				memNo
+				);
+		
+		return memberInfo;
+	}
+	*/
+	
+
+	
+}

@@ -1,0 +1,37 @@
+package com.naver.erp;
+
+public class ToolDTO {
+
+int toolNo;
+	    int jijumNo;
+	    String selectedDate;
+	    String toolName;
+	    public int getToolNo() {
+		return toolNo;
+	}
+	public void setToolNo(int toolNo) {
+		this.toolNo = toolNo;
+	}
+	public int getJijumNo() {
+		return jijumNo;
+	}
+	public void setJijumNo(int jijumNo) {
+		this.jijumNo = jijumNo;
+	}
+	public String getSelectedDate() {
+		return selectedDate;
+	}
+	public void setSelectedDate(String selectedDate) {
+		this.selectedDate = selectedDate;
+	}
+	public String getToolName() {
+		return toolName;
+	}
+	public void setToolName(String toolName) {
+		this.toolName = toolName;
+	}
+		
+	
+	
+	
+}
