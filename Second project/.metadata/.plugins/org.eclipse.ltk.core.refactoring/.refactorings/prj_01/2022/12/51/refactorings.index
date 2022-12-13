@@ -84,3 +84,5 @@
 1670859223795	Rename type 'mainFormController'
 1670917672714	Rename type 'eventController'
 1670922673685	Rename resource 'QnAForm.jsp'
+1670946298287	Rename type 'QnAController'
+1670946321254	Rename resource 'qnaForm.jsp'

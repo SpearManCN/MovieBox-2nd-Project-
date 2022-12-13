@@ -15,7 +15,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
 
     
-
+<script src="/js/jquery-1.11.0.min.js"></script>
     
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
@@ -27,6 +27,53 @@
 <link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
 <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico">
 <meta name="theme-color" content="#712cf9">
+
+
+<script>
+	$(function(){init();});
+	
+
+	function goLogin(){
+	
+		var userEmail = $("[name=email]").val();
+		var userPw = $("[name=pw]").val();					
+		
+		if(typeof(userEmail)!="string" ){ $("[name=email]").val("");}
+		
+		if(userEmail.split(" ").join("")==""){
+			alert("Email을 입력해주세요");
+			$("[name=email]").val("");
+			$("[name=email]").focus();
+			return;
+		}
+		
+		if(typeof(userPw)!="string" ){ $("[name=pw]").val("");}		
+		if(userPw.split(" ").join("")==""){
+			alert("Password를 입력해주세요");
+			$("[name=pw]").val("");
+			$("[name=pw]").focus();
+			return;
+		}
+		
+		
+		
+		
+	}
+	
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     <style>
@@ -105,16 +152,16 @@ function goHome(){
     justify-content: center;">
     <div style="vertical-align: middle;">
 <main class="form-signin w-100 m-auto">
-  <form>
-   <img src="resources/img/Logo.jpg" width="100px" height="100px" style="cursor:pointer" onclick="goHome();">
+  <form name="loginForm">
+   <img src="resources/img/loginLogo.jpg" width="100px" height="100px" style="cursor:pointer" onclick="goHome();">
     <h1 class="h3 mb-3 fw-normal" style="font-weight:bold; font-style: italic;"></h1>
 
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
       <label for="floatingInput">Email address</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="password" class="form-control" id="floatingPassword" name="pw" placeholder="Password">
       <label for="floatingPassword">Password</label>
     </div>
 
@@ -123,7 +170,7 @@ function goHome(){
         
       </label>
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit" style="width:510px; background-color:gray;" onclick="alert('로그인')">Sign in</button>
+    <button class="w-100 btn btn-lg btn-primary" type="submit" style="width:510px; background-color:gray;" onclick="goLogin();">Sign in</button>
     <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
   </form>
 </main>

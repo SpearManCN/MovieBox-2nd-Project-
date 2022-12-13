@@ -9,6 +9,8 @@ function goLogin(){document.commonForm.action="/loginForm.do";document.commonFor
 function goLoginJoin(){document.commonForm.action="/loginJoinForm.do";document.commonForm.submit();}
 function goMyPage(){document.commonForm.action="/myPageHome.do";document.commonForm.submit(); }
 function goMainForm(){document.commonForm.action="/mainForm.do";document.commonForm.submit(); }
+function goLogout(){}
+
 </script>
 
 <form name="commonForm" method="post"></form>
@@ -33,11 +35,12 @@ function goMainForm(){document.commonForm.action="/mainForm.do";document.commonF
          <li class="nav-item">&emsp;&emsp;&emsp;</li>
         <li class="nav-item"><a href="/eventForm.do" class="nav-link link-dark px-2" style="font-weight: bold ;">이벤트/공지사항</a></li>
           <li class="nav-item">&emsp;&emsp;&emsp;</li>
-        <li class="nav-item"><a href="/qnaForm.do" class="nav-link link-dark px-2" style="font-weight: bold ;">고객센터</a></li>
+        <li class="nav-item"><a href="/serviceForm.do" class="nav-link link-dark px-2" style="font-weight: bold ;">고객센터</a></li>
       
        </ul>
       <ul class="nav">
       <li class="nav-item"><span class="nav-link link-dark px-2" style="cursor:pointer" onclick="goMyPage();">My Page</span></li>
+       <li class="nav-item"><span class="nav-link link-dark px-2" style="cursor:pointer" onclick="goLogout();">Logout</span></li>
         <li class="nav-item"><span class="nav-link link-dark px-2" style="cursor:pointer" onclick="goLogin();">Login</span></li>
         <li class="nav-item"><span class="nav-link link-dark px-2" style="cursor:pointer" onclick="goLoginJoin();">Sign up</span></li>
       </ul>

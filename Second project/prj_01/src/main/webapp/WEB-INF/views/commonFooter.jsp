@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!--====================================================================-->
+
+
+
+
+
+
   <footer class="container">
     <p class="float-end"></p>
     <p>&copy; 2017–2022 Company, Inc. Tel 010-8775-1056 </p>

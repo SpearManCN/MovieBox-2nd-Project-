@@ -15,7 +15,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
 
     
-
+<script src="/js/jquery-1.11.0.min.js"></script>
     
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
@@ -106,7 +106,7 @@ function goHome(){
     <div style="vertical-align: middle;">
 <main class="form-signin w-100 m-auto">
   <form>
-   <img src="resources/img/Logo.jpg" width="100px" height="100px" style="cursor:pointer" onclick="goHome();">
+   <img src="resources/img/loginLogo.jpg" width="100px" height="100px" style="cursor:pointer" onclick="goHome();">
     <h1 class="h3 mb-3 fw-normal" style="font-weight:bold; font-style: italic;"></h1>
 
     <div class="form-floating">

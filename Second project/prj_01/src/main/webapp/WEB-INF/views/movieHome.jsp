@@ -26,10 +26,10 @@
 </table>
 </center>
 
-
-
+<table align="center" width="1200px">
+<tr><td>
 <div class="row" align="center">
-<div class="col"></div>
+
 	<div class="col">
 	<div class="card" style="width: 18rem;">
   <img src="resources/img/mainBodyMovie2.jpg" class="card-img-top" width="100px" height="300px">
@@ -64,10 +64,10 @@
     <a onclick="alert(55);" class="btn btn-primary">예매하기</a>
   </div>
 </div></div>
-	<div class="col"></div>
+	
 </div>
 
-
+</table>
 
 
 <%@include file="/WEB-INF/views/commonFooter.jsp" %>

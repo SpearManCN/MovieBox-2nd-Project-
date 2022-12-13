@@ -36,7 +36,7 @@
 
 	<div class="col">
 	<div class="card" style="width: 18rem;">
-  <img src="resources/img/mainBodyMovie2.jpg" class="card-img-top" width="100px" height="300px">
+  <img src="resources/img/snack0.jpg" class="card-img-top" width="80px" height="300px">
   <div class="card-body">
     <h5 class="card-title">팝콘</h5>
     <p class="card-text">가격 : 6000원 </p>
@@ -46,7 +46,7 @@
 </div>
 </div>
 	<div class="col"><div class="card" style="width: 18rem;">
-  <img src="resources/img/mainBodyMovie1.jpg" class="card-img-top" width="100px" height="300px" >
+  <img src="resources/img/snack1.jpg" class="card-img-top" width="100px" height="300px" >
   <div class="card-body">
     <h5 class="card-title">핫도그</h5>
     <p class="card-text">가격 : 3000원 </p>
@@ -55,7 +55,7 @@
   </div>
 </div></div>
 	<div class="col">	<div class="card" style="width: 18rem;">
-  <img src="resources/img/mainBodyMovie0.jpg" class="card-img-top" width="100px" height="300px">
+  <img src="resources/img/snack2.jpg" class="card-img-top" width="100px" height="300px">
   <div class="card-body">
     <h5 class="card-title">나쵸</h5>
     <p class="card-text">가격 : 4500원</p>
@@ -83,6 +83,42 @@
 <tr><td colspan="2"><hr></td>
 </table>
 
+<table width="1000px" align="center">
+<tr><td>
+<div class="row" align="center">
+
+	<div class="col">
+	<div class="card" style="width: 18rem;">
+  <img src="resources/img/drink0.jpg" class="card-img-top" width="80px" height="300px">
+  <div class="card-body">
+    <h5 class="card-title">탄산</h5>
+    <p class="card-text">가격 : 3000원 </p>
+    <a onclick="alert(55);" class="btn btn-primary">구매하기</a>
+    <a onclick="alert(55);" class="btn btn-primary">♥</a>
+  </div>
+</div>
+</div>
+	<div class="col"><div class="card" style="width: 18rem;">
+  <img src="resources/img/drink1.jpg" class="card-img-top" width="100px" height="300px" >
+  <div class="card-body">
+    <h5 class="card-title">아메리카노(ice)</h5>
+    <p class="card-text">가격 : 3000원 </p>
+    <a onclick="alert(55);" class="btn btn-primary">구매하기</a>
+    <a onclick="alert(55);" class="btn btn-primary">♥</a>
+  </div>
+</div></div>
+	<div class="col">	<div class="card" style="width: 18rem;">
+  <img src="resources/img/drink2.jpg" class="card-img-top" width="100px" height="300px">
+  <div class="card-body">
+    <h5 class="card-title">커피(hot)</h5>
+    <p class="card-text">가격 : 3000원</p>
+    <a onclick="alert(55);" class="btn btn-primary">구매하기</a>
+    <a onclick="alert(55);" class="btn btn-primary">♥</a>
+  </div>
+</div></div>
+	
+</div>
+</table>
 
 
 
@@ -102,6 +138,42 @@
 <tr><td colspan="2"><hr></td>
 </table>
 
+<table width="1000px" align="center">
+<tr><td>
+<div class="row" align="center">
+
+	<div class="col">
+	<div class="card" style="width: 18rem;">
+  <img src="resources/img/card0.jpg" class="card-img-top" width="80px" height="300px">
+  <div class="card-body">
+    <h5 class="card-title">기프트카드</h5>
+    <p class="card-text">가격 : 10000원 </p>
+    <a onclick="alert(55);" class="btn btn-primary">구매하기</a>
+    <a onclick="alert(55);" class="btn btn-primary">♥</a>
+  </div>
+</div>
+</div>
+	<div class="col"><div class="card" style="width: 18rem;">
+  <img src="resources/img/card1.jpg" class="card-img-top" width="100px" height="300px" >
+  <div class="card-body">
+    <h5 class="card-title">기프트카드</h5>
+    <p class="card-text">가격 : 20000원 </p>
+    <a onclick="alert(55);" class="btn btn-primary">구매하기</a>
+    <a onclick="alert(55);" class="btn btn-primary">♥</a>
+  </div>
+</div></div>
+	<div class="col">	<div class="card" style="width: 18rem;">
+  <img src="resources/img/card2.jpg" class="card-img-top" width="100px" height="300px">
+  <div class="card-body">
+    <h5 class="card-title">기프트카드</h5>
+    <p class="card-text">가격 : 30000원</p>
+    <a onclick="alert(55);" class="btn btn-primary">구매하기</a>
+    <a onclick="alert(55);" class="btn btn-primary">♥</a>
+  </div>
+</div></div>
+	
+</div>
+</table>
 
 
 
