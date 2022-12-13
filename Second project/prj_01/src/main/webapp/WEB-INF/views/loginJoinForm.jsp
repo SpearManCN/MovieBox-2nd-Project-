@@ -129,6 +129,10 @@ function goHome(){
       <input type=text class="form-control" id="floatingPassword" placeholder="YYYYMMDD">
       <label for="floatingPassword">Birth (YYYYMMDD)</label>
     </div>
+            <div class="form-floating">
+      <input type=text class="form-control" id="floatingPassword" placeholder="010-xxxx-xxxx">
+      <label for="floatingPassword">Phone (except '-')</label>
+    </div>
     
 
 

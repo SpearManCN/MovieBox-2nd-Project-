@@ -16,12 +16,5 @@ public class MainFormController {
 		
 	}
 	
-	@RequestMapping( value="/reserveForm.do")
-	public ModelAndView reserveForm() {
-		ModelAndView mav = new ModelAndView();
-		
-		mav.setViewName("reserveForm.jsp");
-		return mav;
-		
-	}
+
 }

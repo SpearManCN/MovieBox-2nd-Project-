@@ -7,8 +7,8 @@
 <script>
 function goLogin(){document.commonForm.action="/loginForm.do";document.commonForm.submit(); }
 function goLoginJoin(){document.commonForm.action="/loginJoinForm.do";document.commonForm.submit();}
-
-
+function goMyPage(){document.commonForm.action="/myPageHome.do";document.commonForm.submit(); }
+function goMainForm(){document.commonForm.action="/mainForm.do";document.commonForm.submit(); }
 </script>
 
 <form name="commonForm" method="post"></form>
@@ -16,7 +16,7 @@ function goLoginJoin(){document.commonForm.action="/loginJoinForm.do";document.c
         box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);         border: solid rgba(0, 0, 0, .15);
         border-width: 1px 0;" class="b-example-divider" align="center" >
 
- <span style="cursor:pointer" onclick="alert('이동')"><img src="resources/img/movieBox2.jpg" >
+ <span style="cursor:pointer" onclick="goMainForm();"><img src="resources/img/movieBox2.jpg" >
  <Span  style="font-size: 150px; color:red; font-weight: bold ; font-style: italic;" >Movie Box</Span>
  
  </span></div>
@@ -32,9 +32,12 @@ function goLoginJoin(){document.commonForm.action="/loginJoinForm.do";document.c
         <li class="nav-item"><a href="/storeForm.do" class="nav-link link-dark px-2" style="font-weight: bold ;">스토어</a></li>
          <li class="nav-item">&emsp;&emsp;&emsp;</li>
         <li class="nav-item"><a href="/eventForm.do" class="nav-link link-dark px-2" style="font-weight: bold ;">이벤트/공지사항</a></li>
-        
+          <li class="nav-item">&emsp;&emsp;&emsp;</li>
+        <li class="nav-item"><a href="/qnaForm.do" class="nav-link link-dark px-2" style="font-weight: bold ;">고객센터</a></li>
+      
        </ul>
       <ul class="nav">
+      <li class="nav-item"><span class="nav-link link-dark px-2" style="cursor:pointer" onclick="goMyPage();">My Page</span></li>
         <li class="nav-item"><span class="nav-link link-dark px-2" style="cursor:pointer" onclick="goLogin();">Login</span></li>
         <li class="nav-item"><span class="nav-link link-dark px-2" style="cursor:pointer" onclick="goLoginJoin();">Sign up</span></li>
       </ul>

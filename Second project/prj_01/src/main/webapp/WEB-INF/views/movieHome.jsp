@@ -32,7 +32,7 @@
 <div class="col"></div>
 	<div class="col">
 	<div class="card" style="width: 18rem;">
-  <img src="resources/img/mainBodyMovie2.jpg" class="card-img-top" >
+  <img src="resources/img/mainBodyMovie2.jpg" class="card-img-top" width="100px" height="300px">
   <div class="card-body">
     <h5 class="card-title">영화제목</h5>
     <p class="card-text">예매율 :   평점 :   <br>개봉일 : </p>
@@ -41,27 +41,27 @@
 </div>
 </div>
 	<div class="col"><div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+  <img src="resources/img/mainBodyMovie1.jpg" class="card-img-top" width="100px" height="300px" >
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">예매율 :   평점 : </p>
-    <a href="#" class="btn btn-primary">예매하기</a>
+    <h5 class="card-title">영화제목</h5>
+    <p class="card-text">예매율 :   평점 :   <br>개봉일 : </p>
+    <a onclick="alert(55);" class="btn btn-primary">예매하기</a>
   </div>
 </div></div>
 	<div class="col">	<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+  <img src="resources/img/mainBodyMovie0.jpg" class="card-img-top" width="100px" height="300px">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h5 class="card-title">영화제목</h5>
+    <p class="card-text">예매율 :   평점 :   <br>개봉일 : </p>
+    <a onclick="alert(55);" class="btn btn-primary">예매하기</a>
   </div>
 </div></div>
 <div class="col">	<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+  <img src="resources/img/mainMovie0.jpg" class="card-img-top" width="100px" height="300px">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h5 class="card-title">영화제목</h5>
+    <p class="card-text">예매율 :   평점 :   <br>개봉일 : </p>
+    <a onclick="alert(55);" class="btn btn-primary">예매하기</a>
   </div>
 </div></div>
 	<div class="col"></div>
