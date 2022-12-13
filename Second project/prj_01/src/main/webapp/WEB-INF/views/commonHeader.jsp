@@ -4,9 +4,14 @@
 
 
 <script src="/js/jquery-1.11.0.min.js"></script>
+<script>
+function goLogin(){document.commonForm.action="/loginForm.do";document.commonForm.submit(); }
+function goLoginJoin(){document.commonForm.action="/loginJoinForm.do";document.commonForm.submit();}
 
 
-<form name="commonForm"></form>
+</script>
+
+<form name="commonForm" method="post"></form>
 <div style="height:300px; background-color: white; border-width: 1px 0;
         box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);         border: solid rgba(0, 0, 0, .15);
         border-width: 1px 0;" class="b-example-divider" align="center" >
@@ -20,19 +25,18 @@
     <div class="container d-flex flex-wrap">
       <ul class="nav me-auto">
       <li class="nav-item">&emsp;&emsp;&emsp;</li>
-        <li class="nav-item"><a href="#" class="nav-link link-dark px-2 active" aria-current="page" style="font-weight: bold ;" >영화</a></li>
+        <li class="nav-item"><a href="movieHome.do" class="nav-link link-dark px-2 active" aria-current="page" style="font-weight: bold ;" >영화</a></li>
          <li class="nav-item">&emsp;&emsp;&emsp;</li>
-        <li class="nav-item"><a href="#" class="nav-link link-dark px-2" style="font-weight: bold ;">예매</a></li>
+        <li class="nav-item"><a href="reserveForm.do" class="nav-link link-dark px-2" style="font-weight: bold ;">예매</a></li>
          <li class="nav-item">&emsp;&emsp;&emsp;</li> 
-        <li class="nav-item"><a href="#" class="nav-link link-dark px-2" style="font-weight: bold ;">스토어</a></li>
+        <li class="nav-item"><a href="/storeForm.do" class="nav-link link-dark px-2" style="font-weight: bold ;">스토어</a></li>
          <li class="nav-item">&emsp;&emsp;&emsp;</li>
-        <li class="nav-item"><a href="#" class="nav-link link-dark px-2" style="font-weight: bold ;">이벤트/공지사항</a></li>
+        <li class="nav-item"><a href="/eventForm.do" class="nav-link link-dark px-2" style="font-weight: bold ;">이벤트/공지사항</a></li>
         
-        <li class="nav-item"><a href="#" class="nav-link link-dark px-2" style="font-weight: bold ;"></a></li>
-      </ul>
+       </ul>
       <ul class="nav">
-        <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Login</a></li>
-        <li class="nav-item"><a href="mainForm.do" class="nav-link link-dark px-2">Sign up</a></li>
+        <li class="nav-item"><span class="nav-link link-dark px-2" style="cursor:pointer" onclick="goLogin();">Login</span></li>
+        <li class="nav-item"><span class="nav-link link-dark px-2" style="cursor:pointer" onclick="goLoginJoin();">Sign up</span></li>
       </ul>
     </div>
   </nav>
