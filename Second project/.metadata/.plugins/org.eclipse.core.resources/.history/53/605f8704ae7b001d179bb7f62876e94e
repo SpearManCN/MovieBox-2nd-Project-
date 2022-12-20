@@ -1,0 +1,30 @@
+package com.naver.erp;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class MovieFormController {
+	@Autowired
+	private MovieDAO movieDAO;
+	
+	@RequestMapping(value="/movieHome.do")
+	public ModelAndView movieHome() {
+		ModelAndView mav = new ModelAndView();
+		List<Map> movieInfo = new ArrayList();
+		movieInfo = getMovieInfo();
+		
+		
+		
+		mav.setViewName("movieHome.jsp");
+		
+		return mav;
+	}
+}

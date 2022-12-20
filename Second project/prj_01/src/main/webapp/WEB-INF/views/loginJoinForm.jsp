@@ -16,7 +16,34 @@
 
     
 <script src="/js/jquery-1.11.0.min.js"></script>
-    
+<script>
+	function goSignUp(){
+		if(confirm("가입 하시겠습니까?")){
+			$.ajax({
+			url:"/signUp.do"
+			,type:"post"
+			,data:$("[name='sendForm']").serialize()
+			,success:function(idCnt){
+				
+				if( idCnt==1 ) {
+					
+					alert("회원가입 성공");
+					document.goForm.action="/mainForm.do";
+					document.goForm.submit();
+				} else {
+					alert("회원가입 실패")
+					
+				}
+				
+			}
+			,error:function(){ alert("웹서버 접속 실패!") }
+		});	
+			
+		}
+		
+	}
+
+</script>
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <!-- Favicons -->
@@ -105,32 +132,32 @@ function goHome(){
     justify-content: center;">
     <div style="vertical-align: middle;">
 <main class="form-signin w-100 m-auto">
-  <form>
+  <form name="sendForm" method="post">
    <img src="resources/img/loginLogo.jpg" width="100px" height="100px" style="cursor:pointer" onclick="goHome();">
     <h1 class="h3 mb-3 fw-normal" style="font-weight:bold; font-style: italic;"></h1>
 
     <div class="form-floating">
-      <input type="text" class="form-control" id="floatingInput" placeholder="홍길동">
+      <input type="text" class="form-control" id="floatingInput" placeholder="홍길동" name="name">
       <label for="floatingInput">Name</label>
     </div>
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingPassword" placeholder="name@example.com">
+      <input type="email" class="form-control" id="floatingPassword" placeholder="name@example.com" name="email">
       <label for="floatingPassword">Email (ID)</label>
     </div>
 	    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="숫자+한글4~12자리">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="숫자+한글4~12자리" name="pw">
       <label for="floatingPassword">Password</label>
     </div>
         <div class="form-floating">
-      <input type="text" class="form-control" id="floatingPassword" placeholder="자세한 주소를 입력">
+      <input type="text" class="form-control" id="floatingPassword" placeholder="자세한 주소를 입력" name="add">
       <label for="floatingPassword">Address</label>
     </div>
         <div class="form-floating">
-      <input type=text class="form-control" id="floatingPassword" placeholder="YYYYMMDD">
+      <input type=text class="form-control" id="floatingPassword" placeholder="YYYYMMDD" name="birth">
       <label for="floatingPassword">Birth (YYYYMMDD)</label>
     </div>
             <div class="form-floating">
-      <input type=text class="form-control" id="floatingPassword" placeholder="010-xxxx-xxxx">
+      <input type=text class="form-control" id="floatingPassword" placeholder="010-xxxx-xxxx" name="phone">
       <label for="floatingPassword">Phone (except '-')</label>
     </div>
     
@@ -144,7 +171,7 @@ function goHome(){
         
       </label>
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit" style="width:510px; background-color:gray;" onclick="alert('회원가입')">Sign up</button>
+    <input type="button" class="w-100 btn btn-lg btn-primary"style="width:510px; background-color:gray;"value="Sign Up" onclick="goSignUp();">
     <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
   </form>
 </main>

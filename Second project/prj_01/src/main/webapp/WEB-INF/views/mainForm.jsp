@@ -205,7 +205,7 @@
       </div>
       
       <div class="col-md-5 order-md-1">
-   <img src="resources/img/mainBodyMovie1.jpg" width="500" height="500">
+   <img src="resources/img/mainBodyMovie1.jpg" width="100%" height="500">
       </div>
     </div>
 

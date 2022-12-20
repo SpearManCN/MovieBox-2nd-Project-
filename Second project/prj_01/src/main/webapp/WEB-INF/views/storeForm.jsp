@@ -46,7 +46,7 @@
 </div>
 </div>
 	<div class="col"><div class="card" style="width: 18rem;">
-  <img src="resources/img/snack1.jpg" class="card-img-top" width="100px" height="300px" >
+  <img src="resources/img/snack2.jpg" class="card-img-top" width="100px" height="300px" >
   <div class="card-body">
     <h5 class="card-title">핫도그</h5>
     <p class="card-text">가격 : 3000원 </p>
@@ -55,7 +55,7 @@
   </div>
 </div></div>
 	<div class="col">	<div class="card" style="width: 18rem;">
-  <img src="resources/img/snack2.jpg" class="card-img-top" width="100px" height="300px">
+  <img src="resources/img/snack1.jpg" class="card-img-top" width="100px" height="300px">
   <div class="card-body">
     <h5 class="card-title">나쵸</h5>
     <p class="card-text">가격 : 4500원</p>

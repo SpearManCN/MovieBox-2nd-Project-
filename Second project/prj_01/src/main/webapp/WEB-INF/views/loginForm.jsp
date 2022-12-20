@@ -56,6 +56,37 @@
 		}
 		
 		
+		$.ajax({
+			url:"/loginProc.do"
+			,type:"post"
+			,data:$("[name='loginForm']").serialize()
+			,success:function(idCnt){
+				
+				if( idCnt==1 ) {
+					alert("환영합니다");
+					document.goForm.action="/mainForm.do";
+					document.goForm.submit();
+				} else {
+					alert("로그인 실패! 아이디 또는 암호가 틀립니다. 재입력해주십시오.")
+					$("[name=email]").val("");
+					$("[name=pw]").val("");
+					$("[name=email]").focus();
+				}
+				
+			}
+			,error:function(){ alert("웹서버 접속 실패!") }
+		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 	}
@@ -170,7 +201,7 @@ function goHome(){
         
       </label>
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit" style="width:510px; background-color:gray;" onclick="goLogin();">Sign in</button>
+    <input type="button" class="w-100 btn btn-lg btn-primary" style="width:510px; background-color:gray;" onclick="goLogin();" value="Sign in">
     <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
   </form>
 </main>

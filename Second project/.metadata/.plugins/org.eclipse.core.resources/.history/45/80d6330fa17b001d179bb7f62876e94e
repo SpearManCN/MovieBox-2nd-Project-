@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.naver.erp.LoginDAO">
+	
+	
+<select id="getMemNo" parameterType="String" resultType="int">
+		select no from MEMBERBOARD2 where email=#{email}
+</select>
+	
+
+
+<select id="getIsCorrect" parameterType="hashmap" resultType="int">
+		select count(*) from MEMBERBOARD2 where email=#{email} and pw=#{pw}
+</select>
+	
+<insert id="insertSignUp" parameterType="hashmap" >
+	insert into memberBoard2 values(
+		(select nvl(max(no),0)+1 from memberBoard2)
+		,1
+		,1
+		,1
+		,1
+		,1
+		,1
+	)
+
+</insert>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

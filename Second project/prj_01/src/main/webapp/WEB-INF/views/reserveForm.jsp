@@ -10,10 +10,91 @@
 
 
 
-
+<script src="/js/jquery-1.11.0.min.js"></script>
 
 <script>
-	function goReserveDetail(){document.goForm.action="/reserveDetail.do"; document.goForm.submit();}
+	$(function (){  init()  ;});
+	function init(){
+		
+		now = new Date();
+		nowMon = now.getMonth()+1;
+		nowDay = now.getDate();
+		document.getElementById("date1").innerHTML = nowMon + "/" + nowDay;
+		now2 = new Date();
+		now2.setDate(now2.getDate()+1);
+		nowMon2 = now2.getMonth()+1;
+		nowDay2 = now2.getDate();
+		document.getElementById("date2").innerHTML = nowMon2 + "/" + nowDay2;
+		now3 = new Date();
+		now3.setDate(now3.getDate()+2);
+		nowMon3 = now3.getMonth()+1;
+		nowDay3 = now3.getDate();
+		document.getElementById("date3").innerHTML = nowMon3 + "/" + nowDay3;
+		now4 = new Date();
+		now4.setDate(now4.getDate()+3);
+		nowMon4 = now4.getMonth()+1;
+		nowDay4 = now4.getDate();
+		document.getElementById("date4").innerHTML = nowMon4 + "/" + nowDay4;
+		now5 = new Date();
+		now5.setDate(now5.getDate()+4);
+		nowMon5 = now5.getMonth()+1;
+		nowDay5 = now5.getDate();
+		document.getElementById("date5").innerHTML = nowMon5 + "/" + nowDay5;
+		
+		
+		
+	}
+	function goReserveDetail(){
+		$("[name=time]").val($("[name=selTime]").val());
+		
+		document.goForm.action="/reserveDetail.do"; document.goForm.submit();}
+	
+	
+	
+	
+	function setTime(){
+		var timeInfo = $("[name=selTime]").val();
+		$("[name=time]").val(timeInfo);
+	}
+	function getTheater(){
+		
+		
+		
+		var selMovie  = $("[name=selMovie]").val();
+		var selDate = $("[name=selDate]").val();
+		$("[name=movieNo]").val(selMovie);
+		$("[name=date]").val(selDate);
+		$("[name=selTime]").html("<option value='' selected>상영관/시간 선택</option>");
+		///////////////////
+		 $.ajax(
+	                {
+	                    url:"/getTheater.do"
+	                    ,type:"post"
+	                    ,data:$("[name=goForm]").serialize() 
+	                        //, "selectedDate",selectedDate, "toolName",toolName}
+	                        
+	                    ,success:function(map){
+	                    	
+	                    	//$("[name=selDate]").append("<option>2323</option>");
+	                    	for(i=0;i<map.length;i++){
+	                    		
+	                    		$("[name=selTime]").append("<option value="+ map[i]['THEATERNO'] + map[i]['NO']  +">"+ map[i]['THEATERNO']+"관 "+map[i]['STARTTIME']+"</option>");
+	                    		
+	                    		
+	                    	}
+	                    	
+	                    	
+	                    }
+	                    ,error:function( ){
+	                       
+	                    	
+	                    }
+	                }
+	            );
+		
+		////////////////
+		
+	}
 </script>
 
 
@@ -23,7 +104,11 @@
 </head>
 <body>
 <%@include file="/WEB-INF/views/commonHeader.jsp" %>
-<form name="goForm" method="post"></form>
+<form name="goForm" method="post">
+	<input type="hidden" name="date">
+	<input type="hidden" name="movieNo">
+	<input type="hidden" name="time">
+</form>
 
 <center>
 <table width="1200px">
@@ -40,46 +125,28 @@
 <tr><td>
 <table width="400px">
 <tr><td>
-<select class="form-select" size="8" aria-label="size 3 select example" width="500px">
-  <option selected>영화 선택</option>
-  <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-    <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-    <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-    <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-    <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-    <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-    <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
+<select class="form-select" size="8" aria-label="size 3 select example" width="500px" onchange="getTheater();" name="selMovie">
+  <option >영화 선택</option>
+ <c:forEach var="movies" items="${requestScope.movieInfo}" varStatus="loopTagStatus">
+  	<option value="${movies.NO}">${movies.NAME}</option>
+  </c:forEach>
+
 </select>
 </table>
 
 <td>
 <table width="400px">
 <tr><td>
-<select class="form-select" size="8" aria-label="size 3 select example" width="500px">
-  <option selected>날짜 선택</option>
-  <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-    <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-    <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
+<select class="form-select" size="8" aria-label="size 3 select example" width="500px" onchange="getTheater();" name="selDate">
+	
+
+  <option>날짜 선택</option>
+  <option value="1" id="date1"></option>
+  <option value="2" id="date2"></option>
+  <option value="3" id="date3"></option>
+  <option value="4" id="date4"></option>
+  <option value="5" id="date5"></option>
+
   
 </select>
 </table>
@@ -87,23 +154,9 @@
 <td>
 <table width="400px">
 <tr><td>
-<select class="form-select" size="8" aria-label="size 3 select example" width="500px">
+<select class="form-select" size="8" aria-label="size 3 select example" width="500px" name="selTime" onchange="setTime();">
   <option selected>상영관/시간 선택</option>
-  <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-    <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-    <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-    <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-    <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
+  
 </select>
 </table>
 

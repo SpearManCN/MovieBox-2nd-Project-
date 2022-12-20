@@ -7,10 +7,85 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<script src="/js/jquery-1.11.0.min.js"></script>
+
+<script>
+	$(function(){
+		var seatStatus = "${requestScope.seatInfo}";
+		
+		
+		for(var i=1; i<26; i++){
+			if(seatStatus.charAt(i-1)=="0"){
+				$("[name=s"+i+"]").css("background-color","red");
+				$("[name=selSeat]").append("<option value="+i+">"+i+"</option>");
+			}
+			
+		}return;
+		
+		
+		
+	});
+
+	function goReserveInfo(){
+		if( $("[name=selSeat]").val ()==""){alert("좌석을 선택해주세요"); return;}
+		
+		if(confirm("예약 하시겠습니까?")==false){return;
+			
+			
+		}
+		
+		$("[name=seatNo]").val( $("[name=selSeat]").val());
+		
+		
+		document.goInfo.action="/reserveInfo.do";
+		document.goInfo.submit();
+		
+		
+	}
+	
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </head>
 <body>
 <%@include file="/WEB-INF/views/commonHeader.jsp" %>
+
+
+<form name="goInfo" method="post">
+	<input name="seatNoString" type="hidden" value="${requestScope.seatInfo}">
+	<input name="seatNo" type="hidden">
+	<input name="theaterNo" type="hidden" value="${requestScope.theaterNo}"  >
+	<input name="theaterTime" type="hidden" value="${requestScope.theaterTime}" >
+</form>
+
+
 
 <center>
 <table width="1200px">
@@ -27,7 +102,7 @@
 <sapn style="background-color:black">&nbsp;&nbsp;&nbsp;</sapn><span>예약불가</span>
 
 </table>
-<table align="center" width="800px" style="border:1px solid black; background-color:#EAEAEA;">
+<table name="seatTable" align="center" width="800px" style="border:1px solid black; background-color:#EAEAEA;">
 	<tr height="20px">
 	<td width="8%"></td>
 	<td width="7%"></td>
@@ -59,44 +134,44 @@
 	</tr>
 		<tr height="60px" style="color:white; font-weight:bold; font-size:20px" align="center"> 
 	<td></td>
-	<td style="background-color:red;" >1</td>
-	<td style="background-color:red;">2</td>
+	<td name="s1" style="background-color:black;" >1</td>
+	<td name="s2"  style="background-color:black;">2</td>
 	<td></td>
-	<td style="background-color:red;">3</td>
-	<td style="background-color:red;">4</td>
-	<td style="background-color:red;">5</td>
-	<td style="background-color:red;">6</td>
-	<td style="background-color:red;">7</td>
+	<td  name="s3" style="background-color:black;">3</td>
+	<td name="s4"  style="background-color:black;">4</td>
+	<td  name="s5" style="background-color:black;">5</td>
+	<td  name="s6" style="background-color:black;">6</td>
+	<td  name="s7" style="background-color:black;">7</td>
 	<td></td>
-	<td style="background-color:red;">8</td>
-	<td style="background-color:red;">9</td>
-	<td></td>
-	</tr>
-		<tr height="60px" style="color:white; font-weight:bold; font-size:20px" align="center">
-	<td></td>
-	<td style="background-color:red;">10</td>
-	<td style="background-color:red;">11</td>
-	<td></td>
-	<td style="background-color:red;">12</td>
-	<td style="background-color:red;">13</td>
-	<td style="background-color:red;">14</td>
-	<td style="background-color:red;">15</td>
-	<td style="background-color:red;">16</td>
-	<td></td>
-	<td style="background-color:red;">17</td>
-	<td style="background-color:red;">18</td>
+	<td  name="s8" style="background-color:black;">8</td>
+	<td name="s9"  style="background-color:black;">9</td>
 	<td></td>
 	</tr>
 		<tr height="60px" style="color:white; font-weight:bold; font-size:20px" align="center">
 	<td></td>
-	<td style="background-color:red;">19</td>
-	<td style="background-color:red;">20</td>
+	<td name="s10"  style="background-color:black;">10</td>
+	<td name="s11"  style="background-color:black;">11</td>
 	<td></td>
-	<td style="background-color:red;">21</td>
-	<td style="background-color:red;">22</td>
-	<td style="background-color:black;">23</td>
-	<td style="background-color:red;">24</td>
-	<td style="background-color:red;">25</td>
+	<td  name="s12" style="background-color:black;">12</td>
+	<td  name="s13" style="background-color:black;">13</td>
+	<td name="s14"  style="background-color:black;">14</td>
+	<td  name="s15" style="background-color:black;">15</td>
+	<td  name="s16" style="background-color:black;">16</td>
+	<td></td>
+	<td  name="s17" style="background-color:black;">17</td>
+	<td  name="s18" style="background-color:black;">18</td>
+	<td></td>
+	</tr>
+		<tr height="60px" style="color:white; font-weight:bold; font-size:20px" align="center">
+	<td></td>
+	<td  name="s19" style="background-color:black;">19</td>
+	<td  name="s20" style="background-color:black;">20</td>
+	<td></td>
+	<td  name="s21" style="background-color:black;">21</td>
+	<td  name="s22" style="background-color:black;">22</td>
+	<td  name="s23" style="background-color:black;">23</td>
+	<td name="s24"  style="background-color:black;">24</td>
+	<td  name="s25" style="background-color:black;">25</td>
 	<td></td>
 	<td></td>
 	<td></td>
@@ -126,15 +201,15 @@
 <table width="1200px">
 <tr><td>
 <div align="right">
-<select class="form-select" aria-label="Default select example" style="width:200px;background-color:#FFFFE9">
-  <option selected>좌석 선택</option>
-  <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
+<select name="selSeat" class="form-select" aria-label="Default select example" style="width:150px;background-color:#FFFFE9">
+  <option value="" selected>좌석 선택</option>
+  
+
+  
 </select>
 
-<button onclick="goReserveDetail();" type="button" class="btn btn-primary btn-lg" style="width:18%; height:60px; background-color:#FF5A5A;">
-	<span style="font-size:25px; font-weight:; color:white;">예매 완료</span></button></div></table>
+<button onclick="goReserveInfo();" type="button" class="btn btn-primary btn-lg" style="width:18%; height:60px; background-color:#FF5A5A;">
+	<span style="font-size:25px; font-weight:; color:white;">예매 하기</span></button></div></table>
 
 
 

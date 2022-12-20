@@ -1,0 +1,8 @@
+package com.naver.erp;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class MovieDAOImpl implements MovieDAO {
+	public List<Map> getMovieInfo();
+}

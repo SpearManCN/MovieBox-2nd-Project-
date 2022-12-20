@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.naver.erp.ReserveDAO">
+	
+	
+<select id="getMovieInfo" resultType="hashmap">
+		select 
+		no
+		,name
+		,director
+		,genre
+		,runtime
+		,to_char(opendate,'yyyy-mm-dd') "OPENDATE"
+		,agelimit
+		,makingyear
+		,rate
+		,score
+		 from movie 
+</select>
+
+<select id="getTheater" parameterType="hashmap" resultType="hashmap">
+		select * 
+		 from theater1
+		 where movieName = (select name from movie where no=#{movieNo})
+		 and
+		 <if test="date==1">to_char(showdate,'yyyymmdd') = to_char(sysdate,'yyyymmdd')</if>
+		 <if test="date==2">to_char(showdate,'yyyymmdd') = to_char(sysdate+1,'yyyymmdd')</if>
+		 <if test="date==3">to_char(showdate,'yyyymmdd') = to_char(sysdate+2,'yyyymmdd')</if>
+		 <if test="date==4">to_char(showdate,'yyyymmdd') = to_char(sysdate+3,'yyyymmdd')</if>
+		 <if test="date==5">to_char(showdate,'yyyymmdd') = to_char(sysdate+4,'yyyymmdd')</if>
+		 
+		 union
+		 
+		 select * 
+		 from theater2
+		 where movieName = (select name from movie where no=#{movieNo})
+		 and
+		 <if test="date==1">to_char(showdate,'yyyymmdd') = to_char(sysdate,'yyyymmdd')</if>
+		 <if test="date==2">to_char(showdate,'yyyymmdd') = to_char(sysdate+1,'yyyymmdd')</if>
+		 <if test="date==3">to_char(showdate,'yyyymmdd') = to_char(sysdate+2,'yyyymmdd')</if>
+		 <if test="date==4">to_char(showdate,'yyyymmdd') = to_char(sysdate+3,'yyyymmdd')</if>
+		 <if test="date==5">to_char(showdate,'yyyymmdd') = to_char(sysdate+4,'yyyymmdd')</if>
+		 
+		 
+		 union
+		 
+		 select * 
+		 from theater3
+		 where movieName = (select name from movie where no=#{movieNo})
+		 and
+		 <if test="date==1">to_char(showdate,'yyyymmdd') = to_char(sysdate,'yyyymmdd')</if>
+		 <if test="date==2">to_char(showdate,'yyyymmdd') = to_char(sysdate+1,'yyyymmdd')</if>
+		 <if test="date==3">to_char(showdate,'yyyymmdd') = to_char(sysdate+2,'yyyymmdd')</if>
+		 <if test="date==4">to_char(showdate,'yyyymmdd') = to_char(sysdate+3,'yyyymmdd')</if>
+		 <if test="date==5">to_char(showdate,'yyyymmdd') = to_char(sysdate+4,'yyyymmdd')</if>
+		 
+		 union
+		 
+		 select * 
+		 from theater4
+		 where movieName = (select name from movie where no=#{movieNo})
+		 and
+		 <if test="date==1">to_char(showdate,'yyyymmdd') = to_char(sysdate,'yyyymmdd')</if>
+		 <if test="date==2">to_char(showdate,'yyyymmdd') = to_char(sysdate+1,'yyyymmdd')</if>
+		 <if test="date==3">to_char(showdate,'yyyymmdd') = to_char(sysdate+2,'yyyymmdd')</if>
+		 <if test="date==4">to_char(showdate,'yyyymmdd') = to_char(sysdate+3,'yyyymmdd')</if>
+		 <if test="date==5">to_char(showdate,'yyyymmdd') = to_char(sysdate+4,'yyyymmdd')</if>
+		 
+</select>
+<select id="getSeatInfo" resultType="String" parameterType="hashmap">
+		select SEATNO from 
+		<if test="theaterNo==1">theater1</if> 
+		<if test="theaterNo==2">theater2</if> 
+		<if test="theaterNo==3">theater3</if> 
+		<if test="theaterNo==4">theater4</if> 
+		where no = #{theaterTime}
+		 
+</select>
+ 
+
+
+
+
+
+<insert id="insertInfo" parameterType="hashmap" >
+	insert into movieRecord values(
+		(select nvl(max(no),0)+1 from movieRecord)
+		,#{memNo}
+		<if test="theaterNo==1">,(select MOVIENAME from theater1 where no=#{theaterTime})</if>
+		<if test="theaterNo==2">,(select MOVIENAME from theater2 where no=#{theaterTime})</if>
+		<if test="theaterNo==3">,(select MOVIENAME from theater3 where no=#{theaterTime})</if>
+		<if test="theaterNo==4">,(select MOVIENAME from theater4 where no=#{theaterTime})</if>
+		,#{theaterNo}
+		,#{seatNo}
+		<if test="theaterNo==1">,(select SHOWDATE from theater1 where no=#{theaterTime})</if>
+		<if test="theaterNo==2">,(select SHOWDATE from theater2 where no=#{theaterTime})</if>
+		<if test="theaterNo==3">,(select SHOWDATE from theater3 where no=#{theaterTime})</if>
+		<if test="theaterNo==4">,(select SHOWDATE from theater4 where no=#{theaterTime})</if>
+		,sysdate
+		<if test="theaterNo==1">,(select STARTTIME from theater1 where no=#{theaterTime})</if>
+		<if test="theaterNo==2">,(select STARTTIME from theater2 where no=#{theaterTime})</if>
+		<if test="theaterNo==3">,(select STARTTIME from theater3 where no=#{theaterTime})</if>
+		<if test="theaterNo==4">,(select STARTTIME from theater4 where no=#{theaterTime})</if>
+	)
+
+</insert>
+
+
+<update id="updateInfo" parameterType="hashmap">
+	update
+	 
+		<if test="theaterNo==1">theater1</if>
+		<if test="theaterNo==2">theater2</if>
+		<if test="theaterNo==3">theater3</if>
+		<if test="theaterNo==4">theater4</if>
+		seatNo = #{seatNoString}
+		where no = #{theaterTime}
+</update>
+
+
+<select id="getMovieInfos" parameterType="hashmap" resultType="hashmap">
+	select * from movieRecord
+	where seatNo = #{seatNo} and memNo = 1
+
+</select>  
+
+
+
+
+</mapper>

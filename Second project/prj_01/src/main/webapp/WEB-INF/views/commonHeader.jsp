@@ -9,7 +9,12 @@ function goLogin(){document.commonForm.action="/loginForm.do";document.commonFor
 function goLoginJoin(){document.commonForm.action="/loginJoinForm.do";document.commonForm.submit();}
 function goMyPage(){document.commonForm.action="/myPageHome.do";document.commonForm.submit(); }
 function goMainForm(){document.commonForm.action="/mainForm.do";document.commonForm.submit(); }
-function goLogout(){}
+function goLogout(){
+	if(confirm("로그아웃 하시겠습니까?")){
+		document.commonForm.action="/logout.do";document.commonForm.submit();
+	}
+	
+	 }
 
 </script>
 
@@ -39,10 +44,30 @@ function goLogout(){}
       
        </ul>
       <ul class="nav">
-      <li class="nav-item"><span class="nav-link link-dark px-2" style="cursor:pointer" onclick="goMyPage();">My Page</span></li>
-       <li class="nav-item"><span class="nav-link link-dark px-2" style="cursor:pointer" onclick="goLogout();">Logout</span></li>
+      
+      		<%
+      		if(session.getAttribute("memNo")==null){session.setAttribute("memNo",0);}
+			int memNo = (int)session.getAttribute("memNo");
+			if(memNo==0){	%>
         <li class="nav-item"><span class="nav-link link-dark px-2" style="cursor:pointer" onclick="goLogin();">Login</span></li>
-        <li class="nav-item"><span class="nav-link link-dark px-2" style="cursor:pointer" onclick="goLoginJoin();">Sign up</span></li>
+			        <li class="nav-item"><span class="nav-link link-dark px-2" style="cursor:pointer" onclick="goLoginJoin();">Sign up</span></li>
+			
+			<%}else if(memNo==1){%>
+			        <li class="nav-item"><span class="nav-link link-dark px-2" style="cursor:pointer" onclick="goAdmin();">AdminPage</span></li>
+			
+    				   <li class="nav-item"><span class="nav-link link-dark px-2" style="cursor:pointer" onclick="goLogout();">Logout</span></li>
+			
+			<%}else {%>
+			      <li class="nav-item"><span class="nav-link link-dark px-2" style="cursor:pointer" onclick="goMyPage();">My Page</span></li>
+    				   <li class="nav-item"><span class="nav-link link-dark px-2" style="cursor:pointer" onclick="goLogout();">Logout</span></li>
+ 				<%}
+		%>
+      
+  
+     
+     
+     
+     
       </ul>
     </div>
   </nav>

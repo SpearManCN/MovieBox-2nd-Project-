@@ -1,0 +1,9 @@
+package com.naver.erp;
+
+public interface LoginDAO {
+	
+	
+	
+	public int getMemNo(String email);
+	public int getIsCorrect(Map memInfo);
+}
