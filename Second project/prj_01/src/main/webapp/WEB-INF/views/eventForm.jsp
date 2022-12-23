@@ -8,10 +8,53 @@
 <meta charset="UTF-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
+
+<script>
+	function goDetail0(){
+		document.goForm.action="/eventDetail0.do"
+		document.goForm.submit();
+		
+	}
+
+	function goDetail1(){
+		document.goForm.action="/eventDetail1.do"
+		document.goForm.submit();
+		
+	}
+	function goDetail2(){
+		document.goForm.action="/eventDetail2.do"
+		document.goForm.submit();
+		
+	}
+	function goDetail3(){
+		document.goForm.action="/eventDetail3.do"
+		document.goForm.submit();
+		
+	}
+
+	function goDetail4(){
+		document.goForm.action="/eventDetail4.do"
+		document.goForm.submit();
+		
+	}
+	function goDetail5(){
+		document.goForm.action="/eventDetail5.do"
+		document.goForm.submit();
+		
+	}
+</script>
+
+
+
+
+
+
 </head>
 <body>
 <%@include file="/WEB-INF/views/commonHeader.jsp" %>
 
+
+<form name="goForm" method="post"></form>
 <center>
 <table width="1200px">
 	<tr>
@@ -22,36 +65,63 @@
 </table>
 </center>
 
-<table align="center" width="1200px">
+<table align="center" width="1200px" >
 <tr><td>
 <div class="row" align="center">
 
 	<div class="col">
-	<div class="card" style="width: 18rem;">
+	<div class="card" style="width:18rem; cursor:pointer; " onclick="goDetail0();">
   <img src="resources/img/event0.jpg" class="card-img-top" width="100px" height="200px">
-  <div class="card-body">
+  <div class="card-body" style="height:100px">
     <h5 class="card-title">쉽고 많은 혜택, VIP!!</h5>
     <p class="card-text">2022.10.17~2022.12.31</p>
   </div>
 </div>
 </div>
-	<div class="col"><div class="card" style="width: 18rem;">
+	<div class="col"><div class="card" style="width: 18rem; cursor:pointer;" onclick="goDetail1();">
   <img src="resources/img/event1.jpg" class="card-img-top" width="100px" height="200px" >
-  <div class="card-body">
-    <h5 class="card-title">아바타 4DX 리미티드 카드</h5>
+  <div class="card-body" style="height:100px">
+    <h5 class="card-title">아바타 물의길 SX 스페셜 굿즈</h5>
     <p class="card-text">2022.10.17~2022.12.31</p>
   </div>
 </div></div>
-	<div class="col">	<div class="card" style="width: 18rem;">
+	<div class="col">	<div class="card" style="width: 18rem; cursor:pointer;" onclick="goDetail2();">
   <img src="resources/img/event2.jpg" class="card-img-top" width="100px" height="200px">
-  <div class="card-body">
-    <h5 class="card-title">인스타그램 이모티콘 배포!</h5>
+  <div class="card-body" style="height:100px">
+    <h5 class="card-title">파코니를 찾아라!</h5>
     <p class="card-text">2022.10.17~2022.12.31</p>
   </div>
 </div></div>
 	
 </div>
+<br><br>
+<div class="row" align="center">
 
+	<div class="col">
+	<div class="card" style="width:18rem; cursor:pointer; " onclick="goDetail3();">
+  <img src="resources/img/event3.jpg" class="card-img-top" width="100px" height="200px">
+  <div class="card-body" style="height:100px">
+    <h5 class="card-title">개봉작 사용설명서</h5>
+    <p class="card-text">2022.10.17~2022.12.31</p>
+  </div>
+</div>
+</div>
+	<div class="col"><div class="card" style="width: 18rem; cursor:pointer;" onclick="goDetail4();">
+  <img src="resources/img/event4.jpg" class="card-img-top" width="100px" height="200px" >
+  <div class="card-body" style="height:100px">
+    <h5 class="card-title">카카오톡 채널 추가하자!</h5>
+    <p class="card-text">2022.10.17~2022.12.31</p>
+  </div>
+</div></div>
+	<div class="col">	<div class="card" style="width: 18rem; cursor:pointer;" onclick="goDetail5();">
+  <img src="resources/img/event5.jpg" class="card-img-top" width="100px" height="200px">
+  <div class="card-body" style="height:100px">
+    <h5 class="card-title">메리체리스마스!</h5>
+    <p class="card-text">2022.10.17~2022.12.31</p>
+  </div>
+</div></div>
+	
+</div>
 </table>
 
 

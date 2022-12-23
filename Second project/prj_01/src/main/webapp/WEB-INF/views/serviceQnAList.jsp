@@ -50,25 +50,29 @@
 
 </table>
 
+
+
+
+
+
+
 <table align="center" width="800px" style="background-color:">
 <tr align="center" style="background-color:#FAE0D4;">
-<td width="10%" height="50px">번호</td>
-<td width="90%">제목</td>
-<tr align="center" style="background-color:#FFF2E6;" >
+<td width="10%" height="50px" style="font-size:30px;">번호</td>
+<td width="90%" style="font-size:30px;">제목</td>
+<tr align="center" style="background-color:#FFF2E6;">
+
+<c:forEach  var="list" items="${requestScope.info}" varStatus="loopTagStatus">
+<tr style="background-color:#FFFFF6; cursor:pointer" onclick="goDetail('${list.NO}')" >
+<td width="" align="center" style="font-size:30px;">${list.RN}</td>
+<td width="" align="center" style="font-size:30px;">${list.TITLE }</td>
+
+
+</c:forEach>
+
+
+
 </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

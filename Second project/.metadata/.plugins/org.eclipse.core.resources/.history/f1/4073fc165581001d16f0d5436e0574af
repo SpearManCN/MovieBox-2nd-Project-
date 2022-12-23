@@ -1,0 +1,24 @@
+package com.naver.erp;
+
+import java.util.List;
+import java.util.Map;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class ServiceFormDAOImpl implements ServiceFormDAO {
+	@Autowired
+	private SqlSessionTemplate sqlSession;
+	
+	public List<Map> getServiceList(){
+		List<Map> serviceList = this.sqlSession.selectList(
+				"com.naver.erp.getServiceList"
+				
+				);
+		return serviceList;
+		
+	}
+	
+}

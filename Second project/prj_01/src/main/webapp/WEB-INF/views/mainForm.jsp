@@ -6,6 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+ <script src="/js/jquery-1.11.0.min.js"></script>
+ 
  <style>
      
 
@@ -51,11 +53,24 @@
         -webkit-overflow-scrolling: touch;
       }
     </style>
+<script>
+function goDetail(no){
+	$("[name=movieNo]").val(no);
+	
+	document.goForm.action="/movieDetail.do";
+	document.goForm.submit();
+	
+}
 
+
+</script>
 </head>
 <body>
 <%@include file="/WEB-INF/views/commonHeader.jsp" %>
   
+  
+  
+  <form name="goForm" method="post"><input name="movieNo" type="hidden"></form>
   
    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" >
     <div class="carousel-indicators" >
@@ -76,7 +91,7 @@
           <table>
           <tr>
           <td width="10%"></td>
-          <td align="center" style="cursor:pointer" onclick="alert('이동');">
+          <td align="center" style="cursor:pointer" onclick="goDetail(6);">
           
           <img src="resources/img/moviePic3.jpg" width="1030" height="230"></td>
           <td width="10%">
@@ -102,7 +117,7 @@
           <table>
           <tr>
           <td width="0%"></td>
-          <td align="center" style="cursor:pointer" onclick="alert('이동');">
+          <td align="center" style="cursor:pointer" onclick="goDetail(1);">
           
           <img src="resources/img/moviePic2.jpg" width="1030" height="230"></td>
           <td width="20%">
@@ -127,7 +142,7 @@
           <table>
           <tr>
           <td width="20%"></td>
-          <td align="center" style="cursor:pointer" onclick="alert('이동');">
+          <td align="center" style="cursor:pointer" onclick="goDetail(0);">
           
           <img src="resources/img/moviePic1.jpg" width="830" height="230"></td>
           <td width="20%">
@@ -146,11 +161,11 @@
     
     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">السابق</span>
+      <span class="visually-hidden"></span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">التالي</span>
+      <span class="visually-hidden"></span>
     </button>
   </div>
 

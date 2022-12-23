@@ -1,0 +1,82 @@
+package com.naver.erp;
+
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class MyPageController {
+
+	@Autowired
+	private MyPageDAO myPageDAO;
+	
+	@RequestMapping( value="/myPageHome.do")
+	public ModelAndView myPageHome() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("myPageHome.jsp");
+		return mav;
+		
+	}
+	
+	
+	
+	
+	
+	
+	@RequestMapping( value="/myPageBookList.do")
+	public ModelAndView myPageBookList(
+			HttpSession session
+			) {
+		String memberNo =  String.valueOf(session.getAttribute("memNo"));
+		List<Map> bookInfo = this.myPageDAO.getBookInfo();
+		
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("myPageBookList.jsp");
+		return mav;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@RequestMapping( value="/myPageStoreList.do")
+	public ModelAndView myPageStoreList() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("myPageStoreList.jsp");
+		return mav;
+		
+	}
+	@RequestMapping( value="/myPageBasket.do")
+	public ModelAndView myPageBasket() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("myPageBasket.jsp");
+		return mav;
+		
+	}
+	@RequestMapping( value="/myPagePwChange.do")
+	public ModelAndView myPagePwChange() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("myPagePwChange.jsp");
+		return mav;
+		
+	}
+}

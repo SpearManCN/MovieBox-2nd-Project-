@@ -1,0 +1,25 @@
+package com.naver.erp;
+
+import java.util.List;
+import java.util.Map;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class MyPageDAOImpl implements MyPageDAO{
+	@Autowired
+	private SqlSessionTemplate sqlSession;
+	
+	
+	
+	
+	public List<Map> getBookInfo(String str){
+		List<Map> bookInfo = this.sqlSession.selectList(
+				"com.naver.erp.MyPageDAO.getBookInfo"
+				,str
+				);
+		return bookInfo;
+	}
+}

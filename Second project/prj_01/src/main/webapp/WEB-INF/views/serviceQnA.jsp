@@ -11,7 +11,38 @@
 	function goServiceForm(){document.goForm.action="/serviceForm.do"; document.goForm.submit();}
 	function goQnA(){document.goForm.action="/serviceQnA.do"; document.goForm.submit();}
 	function goQnAList(){document.goForm.action="/serviceQnAList.do"; document.goForm.submit();}
-
+	function goWrite(){
+		if(confirm("작성 하시겠습니까?")){
+			
+			$.ajax(
+                {
+                    url:"/write.do"
+                    ,type:"post"
+                    ,data:$("[name=writeForm]").serialize() 
+                        //, "selectedDate",selectedDate, "toolName",toolName}
+                        
+                    ,success:function(cnt){
+                    	
+                    	if(cnt==1){alert("작성 완료");
+                    			
+                    	
+                    		document.goForm.action="/serviceQnA.do";
+                    		document.goForm.submit();
+                    	}
+                    	
+                    	
+                    }
+                    ,error:function( ){
+                       alert("작성 실패, 관리자에게 문의하세요");
+                    	
+                    }
+                }
+            );
+			
+		}
+		
+		
+	}
 </script>
 
 
@@ -49,7 +80,7 @@
 	</tr>
 
 </table>
-
+<form name="writeForm" method="post">
 <table align="center" width="500px" >
 <tr align="center">
 <td width="10%" height="50px"></td>
@@ -58,18 +89,18 @@
 </table>
 <div height="200px"></div>
 <table align="center" width="800px" height="500px"style="background-color:#F6F6F6;">
-	<tr align="center" height="15%"><td>제목</td><td><input type="text" style="width:90%;"></td>
+	<tr align="center" height="15%"><td>제목</td><td><input name="title" type="text" style="width:90%;"></td>
 	</tr>
-	<tr align="center" height="85%"><td>내용</td><td><textarea style="width:90%; height:90%"></textarea></td></tr>
+	<tr align="center" height="85%"><td>내용</td><td><textarea name="content" style="width:90%; height:90%"></textarea></td></tr>
 
 
 </table>
 <br>
 <div align="center">
-	<button onclick="alert('작성완료!');" type="button" class="btn btn-primary btn-lg" style="height:45px;">
-	<span style="font-size:; ">작성완료</span></button>
+	<input type="button" onclick="goWrite();" value="작성 완료" class="btn btn-primary btn-lg" style="height:45px;">
+	
 </div>
-
+</form>
 
 
 

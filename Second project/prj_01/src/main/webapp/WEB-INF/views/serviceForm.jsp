@@ -6,12 +6,20 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
+<script src="/js/jquery-1.11.0.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <script>
 	function goServiceForm(){document.goForm.action="/serviceForm.do"; document.goForm.submit();}
 	function goQnA(){document.goForm.action="/serviceQnA.do"; document.goForm.submit();}
 	function goQnAList(){document.goForm.action="/serviceQnAList.do"; document.goForm.submit();}
-
+	function goDetail(no){
+		
+		$("[name=no]").val(no);
+		document.goForm.action="/serviceDetail.do";
+		document.goForm.submit();
+		
+		
+	}
 </script>
 
 
@@ -19,7 +27,7 @@
 </head>
 <body>
 <%@include file="/WEB-INF/views/commonHeader.jsp" %>
-<form name="goForm" method="post"></form>
+<form name="goForm" method="post"><input type="hidden" name="no" ></form>
 
 
 
@@ -52,10 +60,19 @@
 
 <table align="center" width="800px" style="background-color:">
 <tr align="center" style="background-color:#FAE0D4;">
-<td width="10%" height="50px">번호</td>
-<td width="75%">제목</td>
-<td width="15%">조회수</td>
+<td width="10%" height="50px" style="font-size:30px;">번호</td>
+<td width="90%" style="font-size:30px;">제목</td>
 <tr align="center" style="background-color:#FFF2E6;">
+
+<c:forEach  var="info" items="${requestScope.list}" varStatus="loopTagStatus">
+<tr style="background-color:#FFFFF6; cursor:pointer" onclick="goDetail('${info.NO}')" >
+<td width="" align="center" style="font-size:30px;">${info.NO +1}</td>
+<td width="" align="center" style="font-size:30px;">${info.TITLE }</td>
+
+
+</c:forEach>
+
+
 
 </table>
 
@@ -69,7 +86,7 @@
 
 
 
-
+<br>
 
 
 

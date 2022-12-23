@@ -1,12 +1,26 @@
 package com.naver.erp;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MyPageController {
 
+	@Autowired
+	private MyPageDAO myPageDAO;
+	
 	@RequestMapping( value="/myPageHome.do")
 	public ModelAndView myPageHome() {
 		ModelAndView mav = new ModelAndView();
@@ -15,30 +29,115 @@ public class MyPageController {
 		return mav;
 		
 	}
+	
+	
+	
+	
+	
+	
 	@RequestMapping( value="/myPageBookList.do")
-	public ModelAndView myPageBookList() {
-		ModelAndView mav = new ModelAndView();
+	public ModelAndView myPageBookList(
+			HttpSession session
+			) {
+		String memberNo =  String.valueOf(session.getAttribute("memNo"));
+		List<Map> bookInfo = this.myPageDAO.getBookInfo(memberNo);
 		
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("bookInfo",bookInfo);
+		System.out.print(bookInfo);
 		mav.setViewName("myPageBookList.jsp");
 		return mav;
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@RequestMapping( value="/myPageStoreList.do")
-	public ModelAndView myPageStoreList() {
-		ModelAndView mav = new ModelAndView();
+	public ModelAndView myPageStoreList(
+			HttpSession session
+			
+			
+			) {
 		
+		String memberNo =  String.valueOf(session.getAttribute("memNo"));
+		
+		
+		List<Map> storeInfo = new ArrayList();
+		storeInfo = this.myPageDAO.getBuyStore(memberNo);
+		System.out.print(storeInfo);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("storeInfo",storeInfo);
 		mav.setViewName("myPageStoreList.jsp");
 		return mav;
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@RequestMapping( value="/myPageBasket.do")
-	public ModelAndView myPageBasket() {
-		ModelAndView mav = new ModelAndView();
+	public ModelAndView myPageBasket(
+			HttpSession session
+			
+			) {
 		
+		String memberNo =  String.valueOf(session.getAttribute("memNo"));
+		
+		
+		List<Map> storeInfo = new ArrayList();
+		storeInfo = this.myPageDAO.getJjimInfo(memberNo);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("storeInfo",storeInfo);
 		mav.setViewName("myPageBasket.jsp");
 		return mav;
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@RequestMapping( value="/myPagePwChange.do")
 	public ModelAndView myPagePwChange() {
 		ModelAndView mav = new ModelAndView();
@@ -47,4 +146,72 @@ public class MyPageController {
 		return mav;
 		
 	}
+	
+	
+	
+	@RequestMapping( 
+			value="/changePw.do" 
+			,method=RequestMethod.POST
+			,produces="application/json;charset=UTF-8"
+	)
+	@ResponseBody
+	public int updatePw(
+			@RequestParam( value="newPw" ) String newPw
+			,@RequestParam( value="oldPw" ) String oldPw
+			,HttpSession session
+	) {
+		Map memberInfo = new HashMap();
+		String memberNo =  String.valueOf(session.getAttribute("memNo"));
+		
+		memberInfo.put("newPw", newPw);
+		memberInfo.put("oldPw", oldPw);
+		memberInfo.put("memberNo", memberNo);
+		
+		System.out.print(memberInfo);
+		int successCnt = this.myPageDAO.changePw(memberInfo);
+		
+		
+		
+		
+		
+		return successCnt;
+	}	
+	
+	@RequestMapping( 
+			value="/deleteBasket.do" 
+			,method=RequestMethod.POST
+			,produces="application/json;charset=UTF-8"
+	)
+	@ResponseBody
+	public int deleteBaskets(
+			@RequestParam( value="no" ) String no
+	) {
+		int basketInfo = this.myPageDAO.delBasket(no);
+		
+		
+		
+		
+		
+		return basketInfo;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

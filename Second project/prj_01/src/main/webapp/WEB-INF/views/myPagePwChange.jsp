@@ -14,7 +14,7 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
 
-    
+    <script src="/js/jquery-1.11.0.min.js"></script>
 
     
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -27,6 +27,70 @@
 <link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
 <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico">
 <meta name="theme-color" content="#712cf9">
+
+<script>
+
+	function changePw(){
+		if(confirm("변경 하시겠습니까?")){
+			
+			$.ajax({
+				url:"/changePw.do"
+				,type:"post"
+				,data:$("[name=changeForm]").serialize()
+				,success:function(idCnt){
+					
+					if( idCnt==1 ) {
+						alert("변경 완료");
+						document.goForm.action="/mainForm.do";
+						document.goForm.submit();
+					} else {
+						alert("변경 실패, 재입력해주십시오.")
+						$("[name=newPw]").val("");
+						$("[name=oldPw]").val("");
+						$("[name=newPw]").focus();
+					}
+					
+				}
+				,error:function(){ alert("웹서버 접속 실패!") }
+			});
+			
+			
+			
+			
+			
+			
+			
+		}
+	}
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     <style>
@@ -105,16 +169,16 @@ function goHome(){
     justify-content: center;">
     <div style="vertical-align: middle;">
 <main class="form-signin w-100 m-auto">
-  <form>
+  <form name="changeForm" method="post">
    <img src="resources/img/Logo.jpg" width="100px" height="100px" style="cursor:pointer" onclick="goHome();">
     <h1 class="h3 mb-3 fw-normal" style="font-weight:bold; font-style: italic;"></h1>
 
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingInput" placeholder="Password">
+      <input name="oldPw" type="password" class="form-control" id="floatingInput" placeholder="Password">
       <label for="floatingInput">Current PW</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input name="newPw" type="password" class="form-control" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">New PW</label>
     </div>
 
@@ -123,7 +187,7 @@ function goHome(){
         
       </label>
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit" style="width:510px; background-color:gray;" onclick="alert('비밀번호변경')">Change PW</button>
+    <input type="button" class="w-100 btn btn-lg btn-primary" type="submit" style="width:510px; background-color:gray;" onclick="changePw();" value="Change PW">
     <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
   </form>
 </main>

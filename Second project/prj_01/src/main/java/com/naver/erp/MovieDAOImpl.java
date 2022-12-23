@@ -26,7 +26,7 @@ public class MovieDAOImpl implements MovieDAO {
 	
 	public List<Map> getMovieInfo2(int no){
 		List<Map> MovieInfo = this.sqlSession.selectList(
-				"com.naver.erp.MovieDAO.getMovieInfo"
+				"com.naver.erp.MovieDAO.getMovieInfo2"
 				,no
 				);
 		

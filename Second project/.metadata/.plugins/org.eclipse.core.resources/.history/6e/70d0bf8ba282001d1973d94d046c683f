@@ -1,0 +1,88 @@
+package com.naver.erp;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class ServiceController {
+
+	@Autowired
+	private ServiceFormDAO serviceFormDAO;
+	
+	@RequestMapping( value="/serviceForm.do")
+	public ModelAndView serviceForm() {
+		ModelAndView mav = new ModelAndView();
+		
+		List<Map> list = new ArrayList();
+		list = this.serviceFormDAO.getServiceList();
+		
+		
+		mav.addObject("list",list);
+		mav.setViewName("serviceForm.jsp");
+		return mav;
+		
+	}
+	@RequestMapping( value="/serviceQnA.do")
+	public ModelAndView serviceQnA() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("serviceQnA.jsp");
+		return mav;
+		
+	}
+	@RequestMapping( value="/serviceQnAList.do")
+	public ModelAndView serviceQnAList() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("serviceQnAList.jsp");
+		return mav;
+		
+	}
+	@RequestMapping( value="/serviceDetail.do")
+	public ModelAndView serviceDetail() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("serviceDetail.jsp");
+		return mav;
+		
+	}
+	
+	
+	@RequestMapping( value="/write.do" 
+			,method=RequestMethod.POST
+			,produces="application/json;charset=UTF-8")
+
+	@ResponseBody
+	public int write(
+			@RequestParam(value="title") String title
+			,@RequestParam(value="content") String content
+			,HttpSession session
+			) {
+		String memberNo =  String.valueOf(session.getAttribute("memNo"));
+		Map info = new HashMap();
+		info.put("title", title);
+		info.put("content", content);
+		info.put("memberNo", memberNo);
+		int successCnt = this.serviceFormDAO.insertWrite(info);
+		
+		
+		
+		
+		return 1;
+	}
+	
+	
+	
+}

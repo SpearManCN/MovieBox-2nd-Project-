@@ -33,7 +33,7 @@
 <div class="row" align="center">
 
 <!--  
-<c:forEach var="movie" items="${requestScope.movieInfo}" varStatus="loopTagStatus">
+<c:forEach var="movie" items="${requestScope.movieInfo5}" varStatus="loopTagStatus">
 	<div class="col">
 	<div class="card" style="width: 18rem;">
   <img src="resources/img/mainBodyMovie${loopTagStatus.index}.jpg" class="card-img-top" width="100px" height="300px">
@@ -48,23 +48,22 @@
 -->
 
 
-
 </div>
 
 </table>
 
 <table align="center" width="800px">
 <tr width="100%" height="800px"><td>
-<img src="resources/img/mainBodyMovie${requestScope.movieInfo5.NO}.jpg" class="card-img-top" width="100%" height="100%">
-	<tr width="100%" height="100px"><td style="font-size:50px; font-weight:bold;" align="center">${requestScope.movieInfo5.NAME}</td></tr>
-	<tr width="100%" height="100px"><td style="font-size:50px;font-weight:bold;" align="center">
-	장르 : ${requestScope.movieInfo5.GENRE}
-	<tr width="100%" height="100px"><td style="font-size:50px; font-weight:bold;" align="center">관람가 : ${requestScope.movieInfo5.AGELIMIT }세
-	<tr width="100%" height="100px"><td style="font-size:50px; font-weight:bold;" align="center">감독 : ${requestScope.movieInfo5.DIRECTOR }
-	<tr width="100%" height="100px"><td style="font-size:50px; font-weight:bold;" align="center">런타임 : ${requestScope.movieInfo5.RUNTIME }
-	<tr width="100%" height="100px"><td style="font-size:50px; font-weight:bold;" align="center">개봉일 : ${requestScope.movieInfo5.OPENDATE }
-	<tr width="100%" height="100px"><td style="font-size:50px; font-weight:bold;" align="center">제작년도 : ${requestScope.movieInfo5.MAKINGYEAR }
-	<tr width="100%" height="100px"><td style="font-size:50px; font-weight:bold;" align="center">평점 : ${requestScope.movieInfo5.SCORE }/10   예매율 : ${requestScope.movieInfo5.RATE }%
+<img src="resources/img/mainMovie${requestScope.movieInfo.get('NO')}.jpg" class="card-img-top" width="100%" height="100%">
+	<tr style="background-color:#E1E1E1;"  width="100%" height="100px"><td style="font-size:50px; font-weight:bold;" align="center">${requestScope.movieInfo.get('NAME')}</td></tr>
+	<tr style="background-color:#F3F3F3;" width="100%" height="100px"><td style="font-size:50px;font-weight:bold;" align="center">
+	장르 : ${requestScope.movieInfo.get('GENRE')}
+	<tr style="background-color:#E1E1E1;" width="100%" height="100px"><td style="font-size:50px; font-weight:bold;" align="center">관람가 : ${requestScope.movieInfo.get('AGELIMIT')}세
+	<tr style="background-color:#F3F3F3;" width="100%" height="100px"><td style="font-size:50px; font-weight:bold;" align="center">감독 : ${requestScope.movieInfo.get('DIRECTOR')}
+	<tr style="background-color:#E1E1E1;" width="100%" height="100px"><td style="font-size:50px; font-weight:bold;" align="center">런타임 : ${requestScope.movieInfo.get('RUNTIME')} 분
+	<tr style="background-color:#F3F3F3;" width="100%" height="100px"><td style="font-size:50px; font-weight:bold;" align="center">개봉일 : ${requestScope.movieInfo.get('OPENDATE')}
+	<tr style="background-color:#E1E1E1;" width="100%" height="100px"><td style="font-size:50px; font-weight:bold;" align="center">제작년도 : ${requestScope.movieInfo.get('MAKINGYEAR')}
+	<tr style="background-color:#F3F3F3;" width="100%" height="100px"><td style="font-size:50px; font-weight:bold;" align="center">평점 : ${requestScope.movieInfo.get('SCORE')}/10   예매율 : ${requestScope.movieInfo.get('RATE')}%
 </table>
 
 

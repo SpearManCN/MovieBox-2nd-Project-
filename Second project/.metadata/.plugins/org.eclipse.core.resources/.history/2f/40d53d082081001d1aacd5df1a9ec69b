@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.naver.erp.MyPageDAO">
+	
+	
+<select id="getBookInfo" parameterType="String"  resultType="hashmap">
+		select 
+		no
+		,memNo
+		,movieName
+		,theaterNo
+		,seatNo
+		, to_char(showDate,'YY')||'-'||to_char(showDate,'MM')||'-'||to_char(showDate,'DD')  "SHOWDATE"
+		, to_char(buyDate,'YY')||'-'||to_char(buyDate,'MM')||'-'||to_char(buyDate,'DD')  "BUYDATE"
+		,startTime
+		 from movieRecord
+		 where no= #{str}
+</select>
+
+ 
+<update id="changePw" parameterType="hashmap"  >
+
+	update memberBoard2 set PW = #{newPw} 
+</update>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

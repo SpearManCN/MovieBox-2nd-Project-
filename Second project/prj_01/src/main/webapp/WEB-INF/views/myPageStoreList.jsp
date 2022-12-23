@@ -67,10 +67,22 @@
 
 <table align="center" width="1200px">
 <tr style="background-color:#FFF2E6;">
-<td width="20%" align="center" style="font-size:30px;">구매일</td>
-<td width="25%" align="center" style="font-size:30px;">상품명</td>
+<td width="15%" align="center" style="font-size:30px;">구매일</td>
+<td width="15%" align="center" style="font-size:30px;">유효기한</td>
+<td width="" align="center" style="font-size:30px;">상품명</td>
 <td width="15%" align="center" style="font-size:30px;">가격</td>
-<td width="40%" align="center" style="font-size:30px;">쿠폰번호</td>
+<td width="15%" align="center" style="font-size:30px;">쿠폰번호</td>
+
+<c:forEach  var="info" items="${requestScope.storeInfo}" varStatus="loopTagStatus">
+<tr style="background-color:#FFFFF6;">
+<td width="" align="center" style="font-size:30px;">${info.BUYDATE}</td>
+<td width="" align="center" style="font-size:30px;">${info.VALIDITY }</td>
+<td width="" align="center" style="font-size:30px;">${info.NAME }</td>
+<td width="" align="center" style="font-size:30px;">${info.PRICE }</td>
+<td width="" align="center" style="font-size:30px;">${info.SERIALNO}</td>
+
+
+</c:forEach>
 
 </table>
 

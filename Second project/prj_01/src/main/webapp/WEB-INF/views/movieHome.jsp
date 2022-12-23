@@ -21,6 +21,8 @@ function goReserve(movieNo){
 	document.goForm.submit();
 }
 
+
+
 </script>
 
 
@@ -65,7 +67,7 @@ function goReserve(movieNo){
 <c:forEach var="movie" items="${requestScope.movieInfo}" varStatus="loopTagStatus">
 	<div class="col">
 	<div class="card" style="width: 18rem;">
-  <img src="resources/img/mainBodyMovie${loopTagStatus.index}.jpg" class="card-img-top" width="100px" height="300px" style="cursor:pointer" onclick="goDetail(${movie.NO});">
+  <img src="resources/img/mainMovie${movie.NO}.jpg" class="card-img-top" width="100px" height="300px" style="cursor:pointer" onclick="goDetail(${movie.NO});">
   <div class="card-body">
   <div style="height:70px;">
     <h5 class="card-title">${movie.NAME}</h5></div>

@@ -14,6 +14,36 @@
 	function goMyPageStore(){document.goForm.action="/myPageStoreList.do";document.goForm.submit(); }
 	function goMyPageBasket(){document.goForm.action="/myPageBasket.do";document.goForm.submit(); }
 	function goPwChange(){document.goForm.action="/myPagePwChange.do";document.goForm.submit(); }
+	function goStore(){document.goForm.action="/storeForm.do";document.goForm.submit(); }
+	function goDelete(no){
+		if(confirm("삭제하시겠습니까?")){
+			
+			$.ajax({
+			url:"/deleteBasket.do"
+			,type:"post"
+			,data:{"no":no}
+			,success:function(idCnt){
+				
+				if( idCnt==1 ) {
+					alert("삭제 완료");
+					document.goForm.action="/myPageBasket.do";
+					document.goForm.submit();
+				} else {
+					alert("삭제 실패, 관리자에게 문의해주세요")
+				}
+				
+			}
+			,error:function(){ alert("웹서버 접속 실패!") }
+		});
+			
+			
+		}
+		
+		
+	}
+	
+	
+	
 </script>
 
 
@@ -67,10 +97,20 @@
 
 <table align="center" width="1200px">
 <tr style="background-color:#FFF2E6;">
-<td width="45%" align="center" style="font-size:30px;">상품명</td>
-<td width="15%" align="center" style="font-size:30px;">가격</td>
-<td width="20%" align="center" style="font-size:30px;">구매하기</td>
+<td width="35%" align="center" style="font-size:30px;">상품명</td>
+<td width="25%" align="center" style="font-size:30px;">가격</td>
+<td width="20" align="center" style="font-size:30px;">구매하러가기</td>
 <td width="20%" align="center" style="font-size:30px;">삭제</td>
+
+<c:forEach  var="info" items="${requestScope.storeInfo}" varStatus="loopTagStatus">
+<tr style="background-color:#FFFFF6;">
+<td width="" align="center" style="font-size:30px;">${info.STORENAME}</td>
+<td width="" align="center" style="font-size:30px;">${info.PRICE}</td>
+<td width="" align="center" style="font-size:30px;"><input style="color:white; border-radius:12px; background-color:#FF5A5A; width:180px; weight:20px;"  onclick="goStore();" type="button" value="구매하기"> </td>
+<td width="" align="center" style="font-size:30px;"><input style="color:white; border-radius:12px; background-color:#FFBA85; width:180px; weight:20px;" onclick="goDelete(${info.NO});" type="button" value="삭제하기"></td>
+
+
+</c:forEach>
 
 </table>
 
