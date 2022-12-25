@@ -1,0 +1,10 @@
+package com.naver.erp;
+
+import java.util.List;
+import java.util.Map;
+
+public interface ServiceFormDAO {
+	List<Map> getServiceList();
+	int insertWrite(Map map);
+	List<Map> getMyList(String str);
+}

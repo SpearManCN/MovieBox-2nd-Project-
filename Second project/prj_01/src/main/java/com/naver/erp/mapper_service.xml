@@ -30,8 +30,14 @@
 
 </select>
 
-
-
+<select id="getDetail" parameterType="String" resultType="hashmap" >
+	select * from serviceForm
+	where no = #{no}
+</select>
+<select id="getMyDetail" parameterType="String" resultType="hashmap" >
+	select * from serviceQnAList
+	where no = #{no}
+</select>
 
 
 

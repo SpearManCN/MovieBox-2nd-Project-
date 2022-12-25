@@ -65,14 +65,36 @@ public class ServiceController {
 	
 	
 	
-	
+	@RequestMapping( value="/serviceQnADetail.do")
+	public ModelAndView serviceQnADetail(
+			@RequestParam(value="no") String no
+			) {
+		List<Map> info = new ArrayList();
+		
+		info = this.serviceFormDAO.getMyDetail(no);
+		
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("info",info.get(0));
+		mav.setViewName("serviceQnADetail.jsp");
+		return mav;
+		
+	}
 	
 	
 	
 	@RequestMapping( value="/serviceDetail.do")
-	public ModelAndView serviceDetail() {
-		ModelAndView mav = new ModelAndView();
+	public ModelAndView serviceDetail(
+			@RequestParam(value="no") String no
+			) {
 		
+		List<Map> info = new ArrayList();
+		
+		info = this.serviceFormDAO.getDetail(no);
+		System.out.print(info);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("info",info.get(0));
 		mav.setViewName("serviceDetail.jsp");
 		return mav;
 		

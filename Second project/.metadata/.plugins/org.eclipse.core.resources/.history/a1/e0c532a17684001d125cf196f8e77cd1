@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.naver.erp.ServiceFormDAO">
+	
+	
+<select id="getServiceList"  resultType="hashmap">
+	select * from serviceForm
+
+</select>
+
+
+<insert id="insertWrite" parameterType="hashmap" >
+	insert into serviceQnAList values(
+	(select nvl(max(no),0)+1 from serviceQnAList)
+	,#{memberNo}
+	,#{title}
+	,#{content}
+	)
+</insert>
+<select id="getMyList" parameterType="String" resultType="hashmap" >
+	select 
+	no
+	,memNo
+	,title
+	,content
+	,ROWNUM "RN"
+	 from serviceQnAList
+	where memNo = #{memberNo}
+
+</select>
+
+<select id="getDetail" parameterType="String" resultType="hashmap" >
+	select * from serviceForm
+	where no = #{no}
+</select>
+
+
+
+
+</mapper>

@@ -11,7 +11,13 @@
 	function goServiceForm(){document.goForm.action="/serviceForm.do"; document.goForm.submit();}
 	function goQnA(){document.goForm.action="/serviceQnA.do"; document.goForm.submit();}
 	function goQnAList(){document.goForm.action="/serviceQnAList.do"; document.goForm.submit();}
-
+	function goDetail(no){
+		$("[name=no]").val(no);
+		document.goForm.action="/serviceQnADetail.do";
+		document.goForm.submit();
+		
+		
+	}
 </script>
 
 
@@ -19,7 +25,7 @@
 </head>
 <body>
 <%@include file="/WEB-INF/views/commonHeader.jsp" %>
-<form name="goForm" method="post"></form>
+<form name="goForm" method="post"><input type="hidden" name="no"> </form>
 
 
 
@@ -73,7 +79,6 @@
 
 
 </table>
-
 
 
 

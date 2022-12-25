@@ -36,4 +36,22 @@ public class ServiceFormDAOImpl implements ServiceFormDAO {
 				);
 		return myList;
 	}
+	
+	public List<Map> getDetail(String str){
+		List<Map> detail = this.sqlSession.selectList(
+				"com.naver.erp.ServiceFormDAO.getDetail"
+				,str
+				);
+		return detail;
+	}
+	
+	public List<Map> getMyDetail(String str){
+		List<Map> myDetail = this.sqlSession.selectList(
+				"com.naver.erp.ServiceFormDAO.getMyDetail"
+				,str
+				);
+		return myDetail;
+	}
+	
+	
 }

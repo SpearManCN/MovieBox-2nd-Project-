@@ -20,6 +20,10 @@
 		
 		
 	}
+	function goMain(){
+		document.goForm.action="/serviceForm.do";
+		document.goForm.submit();
+	}
 </script>
 
 
@@ -58,16 +62,16 @@
 
 </table>
 <br><br>
-<table align="center" width="600px" style="background-color:#FAE0D4;">
-<tr  align="center" height="50px"><td  width="100px">제목
+<table align="center" width="600px" style=" background-color:#FFFFF6;">
+<tr  align="center" height="50px"><td  width="100px" style="border-bottom:1px solid #FAE0D4;border-right:1px solid #FAE0D4;  font-size:20px; font-weight:bold;">제목
 </td> 
-<td width="500px">
+<td width="500px" style="border-bottom:1px solid #FAE0D4; font-weight:bold; font-size:20px ">${requestScope.info.get('TITLE') }
 </td>
 </tr>
-<tr  align="center">
-<td>내용
+<tr  align="center" height="600px"  >
+<td style="font-size:20px; font-weight:bold; border-right:1px solid #FAE0D4;">내용
 </td>
-<td>
+<td style= "font-weight:bold; font-size:20px ">${requestScope.info.get('CONTENT') }
 </td>
 </tr>
 </table>
@@ -75,8 +79,9 @@
 
 
 
-
-
+<br><br>
+<div align="center"><input tpye="button" onclick="goMain();" class="btn btn-primary" style="width:90px" value="목록으로">
+</div>
 
 
 
