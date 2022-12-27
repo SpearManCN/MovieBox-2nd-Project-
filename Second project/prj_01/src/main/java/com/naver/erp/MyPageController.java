@@ -40,12 +40,13 @@ public class MyPageController {
 			HttpSession session
 			) {
 		String memberNo =  String.valueOf(session.getAttribute("memNo"));
+		
 		List<Map> bookInfo = this.myPageDAO.getBookInfo(memberNo);
 		
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("bookInfo",bookInfo);
-		System.out.print(bookInfo);
+		System.out.print("앞"+ bookInfo + "뒤");System.out.print(memberNo);
 		mav.setViewName("myPageBookList.jsp");
 		return mav;
 		
