@@ -7,13 +7,13 @@
 #### 개발 환경 - java / oracle / spring
 
 <img src="/picture/pic1.jpg">
-### ㄴ메인 페이지
+### 메인 페이지
 슬라이드와 하단 포스터로 현재 상영중인 영화들중 몇가지를
 보거나 이동할 수 있다.
 
 
-<img src="/picture/sigin.jpg">
-### ㄴ로그인 페이지
+<img src="/picture/signIn.jpg">
+### 로그인 페이지
 session을 이용했으며 추후에 jwt을 이용한 인증/인가를 공부하여 추가할예정
 <img src="/picture/movie.jpg">
 영화 페이지
