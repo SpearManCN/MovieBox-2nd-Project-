@@ -33,37 +33,37 @@ session을 이용했으며 추후에 jwt을 이용한 인증/인가를 공부하
 예약 가능한 좌석만 select에 등장하며 검은색 좌석은 예약불가, 빨간색 좌석은 예약 가능.
 <img src="/picture/reserveDetail.jpg">
 
-예매 완료 페이지
+### 예매 완료 페이지
 예매 완류후 예매정보들을 보여주는 페이지이다. 버튼을 통해 홈페이지와 예매내역 페이지로 이동이가능.
 <img src="/picture/reserveResult.jpg">
 
-스토어 페이지
+### 스토어 페이지
 스낵/음료/상품권 카테고리로 나뉘어있으며 구매하기, 장바구니에 담기 가 가능하다.
 <img src="/picture/store.jpg">
 
-이벤트 페이지
+### 이벤트 페이지
 현재 진행중인 이벤트들을 볼 수 있으며 클릭시 상세화면으로 이동가능
 <img src="/picture/event.jpg">
 
-이벤트 상세보기 페이지
+### 이벤트 상세보기 페이지
 <img src="/picture/eventDetail.jpg">
 
-고객센터 페이지
+### 고객센터 페이지
 자주묻는 질문 / 1:1 문의 / 1:1 문의 내역을 볼수 있다.
 <img src="/picture/CS.jpg">
 
-마이페이지
+### 마이페이지
 회원 정보를 볼수있으며 비밀번호 변경 가능
 <img src="/picture/myPage.jpg">
 
-예매 내역 페이지
+### 예매 내역 페이지
 회원이 예매한 영화들의 내역을 볼 수 있다.
 <img src="/picture/bookList.jpg">
 
-상품 페이지
+### 상품 페이지
 구매한 상품들의 정보와 일렬번호를 알 수 있다.
 <img src="/picture/myStore.jpg">
 
-장바구니 페이지
+### 장바구니 페이지
 장바구니에 넣어놓은 상품들을 볼 수 있으며 구매하거나 장바구니 삭제를 할 수 있다.
 <img src="/picture/basket.jpg">
