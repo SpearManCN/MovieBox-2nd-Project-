@@ -16,20 +16,20 @@
 session을 이용했으며 추후에 jwt을 이용한 인증/인가를 공부하여 추가할예정
 <img src="/picture/signIn.jpg">
 
-영화 페이지
+### 영화 페이지
 상영중인 영화들 목록이 나열돼있으며 클릭시 상세정보로 이동하거나 예매하기 가능
 <img src="/picture/movie.jpg">
 
-영화 상세보기 페이지
+### 영화 상세보기 페이지
 영화 페이지에서 클릭시 이동하는 상세화면
 <img src="/picture/movieDetail.jpg">
 
-예매 페이지
+### 예매 페이지
 영화선택 - 날짜선택 시 해당정보에맞는 상영시간/상영관이 나오며
 선택 완료후 좌석 선택버튼으로 다음페이지로 넘어갈수있음
 <img src="/picture/reserve.jpg">
 
-좌석 선택 페이지
+### 좌석 선택 페이지
 예약 가능한 좌석만 select에 등장하며 검은색 좌석은 예약불가, 빨간색 좌석은 예약 가능.
 <img src="/picture/reserveDetail.jpg">
 
