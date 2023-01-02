@@ -5,6 +5,8 @@
 #### 개인 프로젝트, 1인
 
 #### 개발 환경 - java / oracle / spring
+### ERD
+<img src="/picture/ERD2.jpg">
 
 ### 메인 페이지
 슬라이드와 하단 포스터로 현재 상영중인 영화들중 몇가지를
